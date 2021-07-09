@@ -16,10 +16,10 @@ class Top(tk.Tk):
         self.geometry("%sx%s+%s+%s"%(int(self.winfo_screenheight()/2),
                                      int(self.winfo_screenwidth()/2),
                                      1, 1))
+        self.config(background='#19232D')
         
         # 用一个子线程来获取参数, 这样主进程的小部件不会卡
         threading.Thread(target=Getconfig().getConfig, args=(self,)).start()
-        
         
         
 class Getconfig():
