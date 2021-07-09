@@ -18,7 +18,6 @@ class Mainwindow(tk.Tk):
     
     或者你可以直接在topwindow.py内更改部件参数并运行, 即可看到UI的实时变化.
     """
-
     def __init__(self):
         super().__init__()
         self.wm_attributes('-topmost', 1)
@@ -36,10 +35,11 @@ class Mainwindow(tk.Tk):
             
         while True:
             importlib.reload(topwindow)
-            t = topwindow.TopWindow()
+            t = topwindow.TopWindow(self)
             t.update()
             time.sleep(0.5)
             t.destroy()
+
         
 if __name__ == '__main__':        
     m = Mainwindow()
