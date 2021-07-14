@@ -8,7 +8,6 @@ E-mail : 572078547@QQ.COM
 import tkinter as tk
 import sys, os
 
-#asdasd
 class TopWindow(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -16,28 +15,51 @@ class TopWindow(tk.Frame):
         self.config(background="#EC7600")
         self.place(relx=0.0, rely=0.0, relheight=1.0, relwidth=1.0)
         
-        self.F1 = self.addFrame1()
-        self.F2 = self.addFrame2()
+        self.inputframe = self.InputFrame()
+        self.inputentry = self.InputEntry()
+        self.panedwindow = self.OutputPanedWindow()
         
-    def addFrame1(self):
-        f1 = tk.Frame(self)
-        f1.config(background='#1464A0')
-        f1.place(relx=0.0, rely=0.0, relheight=0.8, relwidth=0.8)
-        return f1
+    def InputFrame(self):
+        frame = tk.Frame(self)
+        frame.config(background="#1464A0")
+        frame.place(relx=0.0, rely=0.85, relheight=0.15, relwidth=1.0)
+        return frame
         
-    def addFrame2(self):
-        f2 = tk.Frame(self.F1)
-        f2.config(background='#32414B')
-        f2.place(relx=0.0, rely=0.0, relheight=0.6, relwidth=0.6)
-        return f2
+    def InputEntry(self):
+        entry = tk.Entry(self.inputframe)
+        entry.config(background='#FFFFFF')
+        entry.insert(0, 'print | 打印')
+        entry.place(relx=0.0, rely=0.0, relheight=1.0, relwidth=1.0)
         
-        
+    def OutputPanedWindow(self):
+        paned = tk.PanedWindow(self)
+        paned.config(background="#1464A0")
+        paned.place(relx=0.0, rely=0.0, relheight=0.8, relwidth=1.0)
+
+
+
+    
 if __name__ == '__main__':
-    try:
-        import mainwindow
-    except:
-        sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-        import mainwindow
+    def debuggui():
+        try:
+            import DebugGUI
+        except:
+            sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+            import DebugGUI
+            
+        m = DebugGUI.Mainwindow()
+        m.mainloop()
         
-    m = mainwindow.Mainwindow()
-    m.mainloop()
+    def consumgui():
+        try:
+            import ConsumGUI
+        except:
+            sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+            import ConsumGUI
+            
+        m = ConsumGUI.Mainwindow()
+        m.mainloop()
+    
+    # debuggui()
+    consumgui()
+    
