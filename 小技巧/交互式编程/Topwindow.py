@@ -48,13 +48,12 @@ if __name__ == '__main__':
         m.mainloop()
         
     def consumgui():
-        try:
-            import ConsumGUI
-        except:
-            sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-            import ConsumGUI
-        m = ConsumGUI.Mainwindow()
-        m.mainloop()
+        root = tk.Tk()
+        root.wm_attributes('-topmost', 1)
+        root.title('Mainwindow')
+        root.geometry(newGeometry="566x355+966+0")
+        TopWindow(root)
+        root.mainloop()
     
     debuggui()
     # consumgui()
