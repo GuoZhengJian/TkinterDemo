@@ -15,29 +15,27 @@ class TopWindow(tk.Frame):
         self.config(background="#EC7600")
         self.place(relx=0.0, rely=0.0, relheight=1.0, relwidth=1.0)
         
-        self.inputframe = self.InputFrame()
-        self.inputentry = self.InputEntry()
-        self.panedwindow = self.OutputPanedWindow()
+        self.frame1 = self.Frame1()
+        self.frame2 = self.Frame2()
+        self.frame3 = self.Frame3()
         
-    def InputFrame(self):
-        frame = tk.Frame(self)
-        frame.config(background="#1464A0")
-        frame.place(relx=0.0, rely=0.85, relheight=0.15, relwidth=1.0)
-        return frame
+    def Frame1(self):
+        f = tk.Frame(self)
+        f.config(background="#19232D")
+        f.place(relx=0.0, rely=0.0, relheight=0.9, relwidth=0.9)
+        return f
+    
+    def Frame2(self):
+        f = tk.Frame(self.frame1)
+        f.config(background="#1464A0")
+        f.place(relx=0.1, rely=0.1, relheight=0.9, relwidth=0.9)
+        return f
         
-    def InputEntry(self):
-        entry = tk.Entry(self.inputframe)
-        entry.config(background='#FFFFFF')
-        entry.insert(0, 'print | 打印')
-        entry.place(relx=0.0, rely=0.0, relheight=1.0, relwidth=1.0)
-        
-    def OutputPanedWindow(self):
-        paned = tk.PanedWindow(self)
-        paned.config(background="#1464A0")
-        paned.place(relx=0.0, rely=0.0, relheight=0.8, relwidth=1.0)
-
-
-
+    def Frame3(self):
+        f = tk.Frame(self.frame2)
+        f.config(background="#FFFFFF")
+        f.place(relx=0.0, rely=0.0, relheight=0.9, relwidth=0.9)
+        return f
     
 if __name__ == '__main__':
     def debuggui():
@@ -46,7 +44,6 @@ if __name__ == '__main__':
         except:
             sys.path.append(os.path.dirname(os.path.abspath(__file__)))
             import DebugGUI
-            
         m = DebugGUI.Mainwindow()
         m.mainloop()
         
@@ -56,10 +53,9 @@ if __name__ == '__main__':
         except:
             sys.path.append(os.path.dirname(os.path.abspath(__file__)))
             import ConsumGUI
-            
         m = ConsumGUI.Mainwindow()
         m.mainloop()
     
-    # debuggui()
-    consumgui()
+    debuggui()
+    # consumgui()
     
