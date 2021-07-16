@@ -37,8 +37,7 @@ class Widget_text(tk.Frame):
         print(self.text.compare(1.0,"==", 2.0))
         self.text.debug(boolean=True)
         
-        # print(self.text.get('1.0', 1.5))
-        print(self.text.get('current', '1.end'))
+        print(self.text.get('1.0', 'end'))
         
 
 
