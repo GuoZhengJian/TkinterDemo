@@ -27,10 +27,10 @@ class Widget_Listbox(tk.Frame):
         self.config(background='#0fffff')
         self.pack(fill='both', padx=1, pady=1, expand=True)
         
-        # Scrollbar实例必须在Listbox实例之上
+        # Scrollbar实例必须在Listbox实例之上, 否则会被listbox抢占空间
         self.yscrollbar = tk.Scrollbar(self, orient='vertical')
-        self.xscrollbar = tk.Scrollbar(self, orient='horizontal')
         self.yscrollbar.pack(side='left', fill='y')
+        self.xscrollbar = tk.Scrollbar(self, orient='horizontal')
         self.xscrollbar.pack(side='bottom', fill='x')
         
         self.listbox = tk.Listbox(self)
